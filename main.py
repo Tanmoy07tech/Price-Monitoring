@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+from datetime import date
 
 
 class pirce_track:
@@ -22,17 +23,18 @@ class pirce_track:
 
         for price in self.prices:
             self.product_pirce=price.text
-        return self.product_pirce
-
+        return self.product_pirce[1:]
+    
+    def create_csv(self):
+        self.product_dict={
+            'product_name':self.get_name(),
+            'product_price':self.get_price()
+        }
+        self.today=date.today()
         
+        self.df=pd.DataFrame(self.product_dict,index=[0])
 
-    # product_dict={
-    #     'product_name':product_name,
-    #     'product_price':product_pirce[1:]
-    # }
+        self.df.to_csv('price.csv')
 
 
-    # df=pd.DataFrame(product_dict,index=[0])
-
-    # df.to_csv('price.csv')
 
