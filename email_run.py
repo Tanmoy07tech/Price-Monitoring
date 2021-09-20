@@ -13,9 +13,9 @@ def send_email(reciever):
 
     
 
-    sender='tanmoysaha7112000@gmail.com'
+    sender='gmail.com'
 
-    sender_pass='tanmoy7112000'
+    sender_pass='#######'
     
     product_name=price_t.get_name()
     price_now=price_t.get_price()
@@ -47,7 +47,7 @@ df=pd.read_csv('price.csv')
 
 
 if int(price_t.get_price())<int(df.product_price):
-    send_email('tanmoysaha52643@gmail.com')
+    send_email('######@gmail.com')
     print('Mail Send Successfully')
     price_t.create_csv()
     
